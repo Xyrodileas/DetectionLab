@@ -119,6 +119,44 @@
           "2"
         ]
       ]
+    },
+    {
+      "type": "qemu",
+      "vm_name":"windows_10",
+      "communicator": "winrm",
+      "iso_url": "{{user `iso_url`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "headless": true,
+      "boot_wait": "6m",
+      "winrm_username": "vagrant",
+      "winrm_password": "vagrant",
+      "winrm_timeout": "2h",
+      "shutdown_timeout": "2h",
+      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+      "disk_size": 41440,
+      "floppy_files": [
+        "{{user `autounattend`}}",
+        "./floppy/WindowsPowershell.lnk",
+        "./floppy/PinTo10.exe",
+        "./scripts/fixnetwork.ps1",
+        "./scripts/MakeWindows10GreatAgain.ps1",
+        "./scripts/MakeWindows10GreatAgain.reg",
+        "./scripts/rearm-windows.ps1",
+        "./scripts/disable-screensaver.ps1",
+        "./scripts/disable-winrm.ps1",
+        "./scripts/enable-winrm.ps1",
+        "./scripts/microsoft-updates.bat",
+        "./scripts/win-updates.ps1"
+      ],
+      "qemuargs": [
+        [ "-m", "4048M" ],
+        [ "-cpu", "Westmere" ]
+      ],
+      "qemuargs": [
+        [ "-m", "2048" ],
+        [ "-smp", "2"]
+      ]
     }
   ],
   "provisioners": [

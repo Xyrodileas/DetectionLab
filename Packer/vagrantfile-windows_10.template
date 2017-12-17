@@ -55,4 +55,9 @@ Vagrant.configure("2") do |config|
         v.vmx["scsi0.virtualDev"] = "lsisas1068"
         v.enable_vmrun_ip_lookup = false
     end
+
+    config.vm.provider :libvirt do |v, override|
+        v.memory = 2048
+        v.cpus = 2
+    end
 end
