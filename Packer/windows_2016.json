@@ -193,7 +193,14 @@
       "type": "vagrant",
       "keep_input_artifact": false,
       "output": "windows_2016_{{.Provider}}.box",
-      "vagrantfile_template": "vagrantfile-windows_2016.template"
+      "vagrantfile_template": "vagrantfile-windows_2016.template",
+      "only": [
+        "virtualbox-iso",
+        "qemu-iso",
+        "vmware-iso"
+
+
+      ]
     }
   ],
   "variables": {
