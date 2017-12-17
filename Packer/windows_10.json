@@ -121,7 +121,8 @@
       ]
     },
     {
-      "type": "qemu",
+      "type": "qemu-iso",
+      "accelerator": "kvm",
       "vm_name":"windows_10",
       "communicator": "winrm",
       "iso_url": "{{user `iso_url`}}",

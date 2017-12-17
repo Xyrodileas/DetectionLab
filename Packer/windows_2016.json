@@ -113,7 +113,8 @@
       ]
     },
     {
-      "type": "qemu",
+      "type": "qemu-iso",
+      "accelerator": "kvm",
       "communicator": "winrm",
       "iso_url": "{{user `iso_url`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
