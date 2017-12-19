@@ -113,7 +113,7 @@
       ]
     },
     {
-      "type": "qemu-iso",
+      "type": "qemu",
       "accelerator": "kvm",
       "communicator": "winrm",
       "iso_url": "{{user `iso_url`}}",
@@ -130,6 +130,8 @@
       "disk_size": 61440,
       "vnc_port_min": 5900,
       "vnc_port_max": 5980,
+      "ssh_host_port_min": 5985,
+      "ssh_host_port_max": 5985,
       "version": 11,
       "floppy_files": [
         "{{user `autounattend`}}",
@@ -194,13 +196,6 @@
       "keep_input_artifact": false,
       "output": "windows_2016_{{.Provider}}.box",
       "vagrantfile_template": "vagrantfile-windows_2016.template",
-      "only": [
-        "virtualbox-iso",
-        "qemu-iso",
-        "vmware-iso"
-
-
-      ]
     }
   ],
   "variables": {

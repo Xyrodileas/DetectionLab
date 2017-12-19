@@ -121,7 +121,7 @@
       ]
     },
     {
-      "type": "qemu-iso",
+      "type": "qemu",
       "accelerator": "kvm",
       "vm_name":"windows_10",
       "communicator": "winrm",
@@ -136,6 +136,11 @@
       "shutdown_timeout": "2h",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
       "disk_size": 41440,
+      "vnc_port_min": 5900,
+      "vnc_port_max": 5980,
+      "ssh_host_port_min": 5985,
+      "ssh_host_port_max": 5985,
+      "version": 11,
       "floppy_files": [
         "{{user `autounattend`}}",
         "./floppy/WindowsPowershell.lnk",
