@@ -4,28 +4,38 @@
     <settings pass="windowsPE">
         <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
             <DiskConfiguration>
-                <Disk wcm:action="add">
-                    <CreatePartitions>
+                    <Disk wcm:action="add">
+                      <CreatePartitions>
                         <CreatePartition wcm:action="add">
-                            <Order>1</Order>
-                            <Type>Primary</Type>
-                            <Extend>true</Extend>
+                          <Type>Primary</Type>
+                          <Order>1</Order>
+                          <Size>350</Size>
                         </CreatePartition>
-                    </CreatePartitions>
-                    <ModifyPartitions>
+                        <CreatePartition wcm:action="add">
+                          <Order>2</Order>
+                          <Type>Primary</Type>
+                          <Extend>true</Extend>
+                        </CreatePartition>
+                      </CreatePartitions>
+                      <ModifyPartitions>
                         <ModifyPartition wcm:action="add">
-                            <Extend>false</Extend>
-                            <Format>NTFS</Format>
-                            <Letter>C</Letter>
-                            <Order>1</Order>
-                            <PartitionID>1</PartitionID>
-                            <Label>Windows 2012</Label>
+                          <Active>true</Active>
+                          <Format>NTFS</Format>
+                          <Label>boot</Label>
+                          <Order>1</Order>
+                          <PartitionID>1</PartitionID>
                         </ModifyPartition>
-                    </ModifyPartitions>
-                    <DiskID>0</DiskID>
-                    <WillWipeDisk>true</WillWipeDisk>
-                </Disk>
-                <WillShowUI>OnError</WillShowUI>
+                        <ModifyPartition wcm:action="add">
+                          <Format>NTFS</Format>
+                          <Label>Windows 2012 R2</Label>
+                          <Letter>C</Letter>
+                          <Order>2</Order>
+                          <PartitionID>2</PartitionID>
+                        </ModifyPartition>
+                      </ModifyPartitions>
+                      <DiskID>0</DiskID>
+                      <WillWipeDisk>true</WillWipeDisk>
+                    </Disk>
             </DiskConfiguration>
             <UserData>
                 <AcceptEula>true</AcceptEula>
